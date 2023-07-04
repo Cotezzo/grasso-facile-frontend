@@ -1,0 +1,69 @@
+<form *ngIf="showAddProduct" class="form" (ngSubmit)="onSubmit()">
+
+  <div class="form-long">
+    <label class="form-label" for="description">Descrizione</label>
+    <input class="form-input" autocomplete="off" list="datalistDescription" type="text" name="description"
+      [(ngModel)]="description" id="description" placeholder="Descrizione" />
+  </div>
+
+  <div class="form-medium">
+    <label class="form-label" for="brand">Marca</label>
+    <input class="form-input" autocomplete="off" list="datalistBrand" type="text" name="brand" [(ngModel)]="brand"
+      id="brand" placeholder="Marca" />
+  </div>
+
+  <div class="form-medium">
+    <label class="form-label" for="expiration_date">Scadenza</label>
+    <input class="form-input" type="date" name="expiration_date" [(ngModel)]="expiration_date" id="expiration_date"
+      placeholder="Scadenza" />
+  </div>
+
+
+
+
+
+  <div class="form-long">
+    <label class="form-label" for="location">Ubicazione</label>
+    <input class="form-input" autocomplete="off" list="datalistLocation" type="text" name="location"
+      [(ngModel)]="location" id="location" placeholder="Ubicazione" />
+  </div>
+
+  <div class="form-short">
+    <label class="form-label" for="units">Qtà</label>
+    <input class="form-input" autocomplete="off" type="number" name="units" [(ngModel)]="units" id="units"
+      placeholder="Qtà" />
+  </div>
+
+  <div class="form-short">
+    <label class="form-label" for="wgt">Peso</label>
+    <input class="form-input form-input-noarrows" autocomplete="off" type="number" name="wgt" [(ngModel)]="wgt" id="wgt"
+      placeholder="g" />
+  </div>
+  
+  <div class="form-short">
+    <label class="form-label" for="cal">Cal/100g</label>
+    <input class="form-input form-input-noarrows" autocomplete="off" type="number" name="cal" [(ngModel)]="cal" id="cal"
+      placeholder="Cal" />
+  </div>
+
+  <div class="form-medium">
+    <label class="form-label" for="optional">Note</label>
+    <input class="form-input" autocomplete="off" type="text" name="optional" [(ngModel)]="optional"
+      id="optional" placeholder="Note" />
+  </div> <!--- (ngModelChange)="checkCode($event)"  -->
+
+  <datalist id="datalistDescription">
+    <app-datalist-option *ngFor="let option of datalistDescriptionOptions" [option]="option"></app-datalist-option>
+  </datalist>
+
+  <datalist id="datalistBrand">
+    <app-datalist-option *ngFor="let option of datalistBrandOptions" [option]="option"></app-datalist-option>
+  </datalist>
+
+  <datalist id="datalistLocation">
+    <app-datalist-option *ngFor="let option of datalistLocationOptions" [option]="option"></app-datalist-option>
+  </datalist>
+
+
+  <input class="btn-common btn-sort btn-block s" type="submit" value="Aggiunti Prodotto" />
+</form>

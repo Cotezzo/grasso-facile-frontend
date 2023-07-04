@@ -1,0 +1,31 @@
+<!-- <div class="sort">
+    <input class="btn-common btn-sort btn-block" type="button" value="{{ value }}" (click)="onClick()" />
+</div> -->
+
+<div class="sort">
+    <input class="btn-common btn-sort btn-block" type="button" value="{{ (!sortInfo[0] ? '-' : sortInfo[0] > 0 ? '▼' : '▲') }} Desc" (click)="onSortClick(0)" />
+</div>
+
+<div class="sort">
+    <input class="btn-common btn-sort btn-block" type="button" value="{{ (!sortInfo[1] ? '-' : sortInfo[1] > 0 ? '▼' : '▲') }} Ubicaz" (click)="onSortClick(1)" />
+</div>
+
+<div class="sort">
+    <input class="btn-common btn-sort btn-block" type="button" value="{{ (!sortInfo[2] ? '-' : sortInfo[2] > 0 ? '▼' : '▲') }} Marca" (click)="onSortClick(2)" />
+</div>
+
+<div class="sort">
+    <input class="btn-common btn-sort btn-block" type="button" value="{{ (!sortInfo[3] ? '-' : sortInfo[3] > 0 ? '▼' : '▲') }} Scad" (click)="onSortClick(3)" />
+</div>
+
+<div class="sort">
+    <input class="btn-common btn-sort btn-block" type="button" value="{{ (!sortInfo[4] ? '-' : sortInfo[4] > 0 ? '▼' : '▲') }} Ins" (click)="onSortClick(4)" />
+</div>
+
+<div class="sort">
+    <input class="btn-common btn-sort btn-block" type="button" value="{{ (!sortInfo[5] ? '-' : sortInfo[5] > 0 ? '▼' : '▲') }} Q.tà" (click)="onSortClick(5)" />
+</div>
+
+<div style="width: 6.2%;" class="sort">
+    <fa-icon style="background-color: orange;" class="btn-common btn-sort btn-filter" [icon]="bin" (click)="onClearClick()"></fa-icon>
+</div>

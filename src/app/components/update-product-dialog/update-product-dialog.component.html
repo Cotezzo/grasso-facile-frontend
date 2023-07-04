@@ -1,0 +1,79 @@
+<div class="form-background">
+    <h2 mat-dialog-title>Modifica Prodotto</h2>
+    <mat-dialog-actions>
+
+        <div class="form-long">
+            <label class="form-label" for="description">Descrizione</label>
+            <input class="form-input" autocomplete="off" type="text" name="description"
+                [(ngModel)]="data.product.description" id="description" placeholder="Descrizione" />
+        </div>
+
+        <div class="form-medium">
+            <label class="form-label" for="brand">Marca</label>
+            <input class="form-input" autocomplete="off" list="datalistBrand" type="text" name="brand"
+                [(ngModel)]="data.product.brand" id="brand" placeholder="Marca" />
+        </div>
+
+        <div class="form-medium">
+            <label class="form-label" for="expiration_date">Scadenza</label>
+            <input class="form-input" type="date" name="expiration_date" [(ngModel)]="data.product.expiration_date"
+                id="expiration_date" placeholder="Scadenza" />
+        </div>
+
+
+
+
+        <div class="form-long">
+            <label class="form-label" for="location">Ubicazione</label>
+            <input class="form-input" autocomplete="off" list="datalistLocation" type="text" name="location"
+                [(ngModel)]="data.product.location" id="location" placeholder="Ubicazione" />
+        </div>
+
+        <div class="form-short">
+            <label class="form-label" for="units">Qtà</label>
+            <input class="form-input" type="number" name="units" [(ngModel)]="data.product.units" id="units"
+                placeholder="Qtà" />
+        </div>
+
+        <div class="form-short">
+            <label class="form-label" for="wgt">Peso</label>
+            <input class="form-input form-input-noarrows" type="number" name="wgt" [(ngModel)]="data.product.wgt" id="wgt"
+                placeholder="g" />
+        </div>
+        
+        <div class="form-short">
+            <label class="form-label" for="cal">Cal</label>
+            <input class="form-input form-input-noarrows" type="number" name="cal" [(ngModel)]="data.product.cal" id="cal"
+                placeholder="Cal" />
+        </div>
+
+        <div class="form-medium">
+            <label class="form-label" for="optional">Note</label>
+            <input class="form-input" autocomplete="off" type="text" name="optional" [(ngModel)]="data.product.optional"
+                id="optional" placeholder="Marca" />
+        </div>
+
+
+
+        <div class="btn-dialog" style="margin-right: 1%;">
+            <input class="btn-common btn-sort btn-block" mat-button [mat-dialog-close]="data" type="button"
+                value="Conferma modifiche" />
+        </div>
+
+        <div class="btn-dialog" style="margin-left: 1%;">
+            <input class="btn-common btn-sort btn-block" mat-button [mat-dialog-close]="false" type="button"
+                value="Annulla" />
+        </div>
+
+        <datalist id="datalistLocation">
+            <app-datalist-option *ngFor="let option of data.datalistLocationOptions" [option]="option">
+            </app-datalist-option>
+        </datalist>
+
+        <datalist id="datalistBrand">
+            <app-datalist-option *ngFor="let option of data.datalistBrandOptions" [option]="option">
+            </app-datalist-option>
+        </datalist>
+
+    </mat-dialog-actions>
+</div>

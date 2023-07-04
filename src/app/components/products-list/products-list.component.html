@@ -1,0 +1,13 @@
+<app-add-product [datalistDescriptionOptions]="datalistDescriptionOptions"
+    [datalistLocationOptions]="datalistLocationOptions" [datalistBrandOptions]="datalistBrandOptions" 
+    (onAddProduct)="addProduct($event)"></app-add-product> <!--- [codes]="codes" -->
+
+<app-order-products-list [sortInfo]="sortInfo" (onSort)="sort($event)" (onClearSort)="clearSort()">
+</app-order-products-list>
+
+<app-filter-products-list (onFilter)="updateFilter($event)" (onClearFilter)="clearFilter()"></app-filter-products-list>
+
+<app-product *ngFor="let product of products" [product]="product" [checkDate]="checkDate(product.expiration_date)"
+    [filter]="filter(product)" (onRemoveUnit)="removeUnit($event)" (onAddUnit)="addUnit($event)"
+    (onOpenDialog)="openUpdateDialog(product)">
+</app-product>

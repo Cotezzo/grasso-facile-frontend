@@ -1,0 +1,21 @@
+<div *ngIf="filter">
+    <div class="product-common product-info" [ngClass]="{ expired: checkDate }" (click)="onClick(product)">
+    <!-- "openDialog(product)"> -->
+        <h3 style="text-align: left;">{{ product?.description |titlecase }}{{ ( product?.brand ? " - " + product.brand : "" ) | titlecase }}
+            <span style="float: right;">{{ product?.location |titlecase }}</span>
+        </h3>
+        
+        <p style="text-align:left;">Exp: {{ product?.expiration_date?.split("-")?.reverse()?.join("-") }} ({{ product?.insertion_date?.split("-")?.reverse()?.join("-") }})
+            <span style="float: right;">{{ product.cal && product.wgt ? ( ( product.cal*product.wgt/100 | number:'0.0-2') + "cal (" + product.wgt + "g, " + (product.cal  | number:'0.0-2') + "cal)") : undefined }}</span>
+            <!-- <span style="float: right;">{{ (product?.cal && product.wgt) ? ("Cal: " + (product?.cal?*product?.wgt?/100) + " (" + product.wgt + "g * " + product.cal + ")") : undefined }}</span> -->
+        </p>
+    </div>
+
+    <div class="product-common product-cart">
+        <h1>
+            <fa-icon [icon]="cartDown" style="color: red; float:left; cursor: pointer;" (click)="onRemove(product)"></fa-icon>
+            {{ product?.units }}
+            <fa-icon [icon]="cartPlus" style="color: green; float:right; cursor: pointer;" (click)="onAdd(product)"></fa-icon>
+        </h1>
+    </div>
+</div>

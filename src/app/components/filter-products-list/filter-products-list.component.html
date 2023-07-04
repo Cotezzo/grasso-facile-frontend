@@ -1,0 +1,82 @@
+<div class="filter-common">
+    <input
+        class="form-input"
+        autocomplete="off"
+        type="text"
+        name="description"
+        [(ngModel)]="description"
+        (ngModelChange)="onInput('description', $event)"
+        id="description"
+        placeholder="Filtra"
+    />
+</div>
+
+<div class="filter-common">
+    <input
+        class="form-input"
+        autocomplete="off"
+        type="text"
+        name="location"
+        [(ngModel)]="location"
+        (ngModelChange)="onInput('location', $event)"
+        id="location"
+        placeholder="Filtra"
+    />
+</div>
+
+<div class="filter-common">
+    <input
+        class="form-input"
+        autocomplete="off"
+        type="text"
+        name="brand"
+        [(ngModel)]="brand"
+        (ngModelChange)="onInput('brand', $event)"
+        id="brand"
+        placeholder="Filtra"
+    />
+</div>
+
+<div class="filter-common">
+    <input
+        class="form-input"
+        autocomplete="off"
+        type="text"
+        name="expiration_date"
+        [(ngModel)]="expiration_date"
+        (ngModelChange)="onInput('expiration_date', $event)"
+        id="expiration_date"
+        placeholder="Filtra"
+    />
+</div>
+
+<div class="filter-common">
+    <input
+        class="form-input"
+        autocomplete="off"
+        type="text"
+        name="insertion_date"
+        [(ngModel)]="insertion_date"
+        (ngModelChange)="onInput('insertion_date', $event)"
+        id="insertion_date"
+        placeholder="Filtra"
+    />
+</div>
+
+
+<div class="filter-common">
+    <input
+        class="form-input"
+        autocomplete="off"
+        type="number"
+        name="units"
+        [(ngModel)]="units"
+        (ngModelChange)="onInput('units', $event)"
+        id="units"
+        placeholder="Filtra"
+    />
+</div>
+
+<div style="width: 6.2%;" class="filter-common">
+    <fa-icon class="btn-common btn-sort btn-filter" [icon]="bin" (click)="onClick()"></fa-icon>
+</div>

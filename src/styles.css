@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+/* scrollup */
+
+.scrollup {
+	width: 50px;
+	height: 50px;
+	border-radius: 30px;
+	opacity: .3;
+	position: fixed;
+	bottom: 20px;
+	right: 25px;
+	color: #fff;
+	cursor: pointer;
+	background-color: #000;
+	z-index: 1000;
+	transition: opacity .5s, background-color .5s;
+	-moz-transition: opacity .5s, background-color .5s;
+	-webkit-transition: opacity .5s, background-color .5s;
+}
+
+.scrollup:hover {
+	background: #222;
+	opacity: 0.7;
+}
+
+.scrollup fa-icon {
+	position: absolute;
+	color: #fff;
+
+  text-align: center;
+  vertical-align: auto;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 11px;
+  padding-bottom: 14px;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.cont {
+  max-width: 99%;
+  margin: 30px auto;
+  overflow: auto;
+  border: 1px solid steelblue;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.btn-common {
+  display: inline-block;
+  background: #000;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  text-align: center;
+}
+
+.btn-common:focus {
+  outline: none;
+}
+
+.btn-common:active {
+  transform: scale(0.95);
+}
+
+.btn-sort {
+  padding: 10px 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 13px;
+}
+
+.btn-add {
+  margin-right: 6px;
+  padding: 10px 20px;
+  font-size: 20px;
+}
+
+.btn-block {
+  display: block;
+  background: lightskyblue;
+  width: 100%;
+}
+
+.btn-filter { /* Assuming override works */
+  width: 100%;
+  background: red;
+  color: white;
+  margin-left: 7px;
+}
+
+.btn-dialog {
+  display: inline-block;
+  width: 49%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.form-long {
+  width: 40%;
+  display: inline-block;
+  padding-right: 1%;
+}
+
+.form-medium {
+  width: 30%;
+  display: inline-block;
+  padding-left: 1%;
+}
+
+.form-short {
+  width: 10%;
+  display: inline-block;
+  padding-left: 1%;
+}
+
+
+.filter-common{
+  display: inline-block;
+  width: 15.5%;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.form-label {
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 14px;
+}
+
+.product-common {
+  background: #f4f4f4;
+  margin: 0.3%;
+  padding: 6px 8px;
+  float: left;
+  height: 55px;
+}
+
+.product-info {
+  width: 74.8%;
+  font-size: 13px;
+}
+
+.product-cart {
+  width: 24%;
+  text-align: center;
+}
+
+.product-info.expired {
+  border-left: 5px solid red;
+}
+
+.product-common h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sort {
+  display: inline-block;
+  width: 15.5%;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+.form {
+  margin-bottom: 30px;
+  margin-right: 10px;
+  margin-left: 3px;
+}
+
+.s {
+  margin-top: 10px;
+}
+
+.form-background {
+  padding: 2.5%;
+  background: #f4f4f4;
+  border-radius: 2%;
+}
+
+/* REMOVE NUMBER ARROWS */
+/* Chrome, Safari, Edge, Opera */
+.form-input-noarrows::-webkit-outer-spin-button,
+.form-input-noarrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.form-input-noarrows[type=number] {
+  -moz-appearance: textfield;
+}

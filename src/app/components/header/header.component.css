@@ -1,0 +1,11 @@
+.head img {
+    margin-left: 10px;
+    margin-right: 20px;
+    float: left;
+    height: 100px;
+}
+  
+.head h1 {
+    top: 18px;
+    left: 0px;
+}

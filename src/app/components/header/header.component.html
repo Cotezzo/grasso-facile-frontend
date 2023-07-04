@@ -1,0 +1,11 @@
+<div class="head">
+    <img style="cursor: pointer;" (click)="onClick()" src="{{ src }}" alt="logo" />
+    <h1 style="margin-left: 10px; margin-top: 5px">{{ title }}</h1>
+</div>
+<header>
+    <p>{{ subtitle }}</p>
+    <app-button color="{{ showAddProduct ? 'red' : 'green' }}"
+                text="{{ showAddProduct ? '▲' : '▼' }}"
+                (btnClick)="toggleAddProduct()">
+    </app-button>
+</header>                                       
