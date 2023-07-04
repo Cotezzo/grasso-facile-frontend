@@ -1,10 +1,10 @@
-# AngularTest
+# grasso-facile-frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2 adn NodeJS version 16.5.0.
 
 ## Development server
 
-Run `ng serve` (npm run start) for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` (`npm start`) for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -12,11 +12,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` (npm run build) to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build` (`npm run build`) to build the project. The build artifacts will be stored in the `dist/` directory. The content of this directory (as well as the icon and logos) can be moved to the `public/` directory in the [grasso-facile-backend](https://github.com/Cotezzo/grasso-facile-backend) project as a static web page.
 
 ## Running unit tests
 
-Run `ng test` (npm test) to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test` (`npm test`) to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests
 
