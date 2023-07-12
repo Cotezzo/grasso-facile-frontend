@@ -1,4 +1,4 @@
 /node_modules
 /dist
 /ssl
-/src/environments/*
+package-lock.json
