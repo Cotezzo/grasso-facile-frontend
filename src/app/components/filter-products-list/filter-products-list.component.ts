@@ -16,7 +16,7 @@ export class FilterProductsListComponent implements OnInit {
   expiration_date: string | undefined;
   insertion_date: string | undefined;
   location: string | undefined;
-  units: number | undefined;
+  optional: string | undefined;
   
   bin = faTrash;
 
@@ -39,6 +39,6 @@ export class FilterProductsListComponent implements OnInit {
     this.expiration_date = undefined;
     this.insertion_date = undefined;
     this.location = undefined;
-    this.units = undefined;
+    this.optional = undefined;
   }
 }
