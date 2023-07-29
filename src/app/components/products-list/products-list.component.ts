@@ -19,7 +19,7 @@ export class ProductsListComponent implements OnInit {
   datalistBrandOptions: string[] = [];
   // codes: any = {};                                                                                  // Code - Description associations
 
-  private static sortProperties: string[] = ["description", "location", "brand", "expiration_date", "insertion_date", "units"]; // Product props associated with sort value with array index
+  private static sortProperties: string[] = ["description", "location", "brand", "expiration_date", "insertion_date", "optional"]; // Product props associated with sort value with array index
   sortInfo: number[] = [0, 0, 0, 0, 0, 0];                                                                 // Init values of sort state of product props in the list
   private sortBy: string[] = [];                                                                                // List of properties to sort by the list
   private filters: any = {};          // Send to product                                                        // Filter list for comparing
