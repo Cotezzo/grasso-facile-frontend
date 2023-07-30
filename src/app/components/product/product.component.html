@@ -5,7 +5,8 @@
             <span style="float: right;">{{ product?.location |titlecase }}</span>
         </h3>
         
-        <p style="text-align:left;">Exp: {{ product?.expiration_date?.split("-")?.reverse()?.join("-") }} ({{ product?.insertion_date?.split("-")?.reverse()?.join("-") }})
+        <p style="text-align:left;">Exp: {{ product?.expiration_date?.split("-")?.reverse()?.join("-") }} {{ "ciao" }} &nbsp;&nbsp;&nbsp; {{ product?.optional }}
+        <!-- <p style="text-align:left;">Exp: {{ product?.expiration_date?.split("-")?.reverse()?.join("-") }} ({{ product?.insertion_date?.split("-")?.reverse()?.join("-") }}) -->
             <span style="float: right;">{{ product.cal && product.wgt ? ( ( product.cal*product.wgt/100 | number:'0.0-2') + "cal (" + product.wgt + "g, " + (product.cal  | number:'0.0-2') + "cal)") : undefined }}</span>
             <!-- <span style="float: right;">{{ (product?.cal && product.wgt) ? ("Cal: " + (product?.cal?*product?.wgt?/100) + " (" + product.wgt + "g * " + product.cal + ")") : undefined }}</span> -->
         </p>
