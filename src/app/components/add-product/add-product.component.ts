@@ -26,6 +26,8 @@ export class AddProductComponent implements OnInit {
   cal: number | undefined;
   wgt: number | undefined;
 
+  check: boolean | undefined;
+
   showAddProduct: boolean = false;                                                                  // The state of the toggle
 
   constructor(private uiService: UiService, private productService: ProductService) {
@@ -82,7 +84,9 @@ export class AddProductComponent implements OnInit {
 
       optional,
       cal: this.cal,
-      wgt: this.wgt
+      wgt: this.wgt,
+
+      check: false
     }
 
     this.onAddProduct.emit(newProduct);                                       // Emit event with the new product
@@ -98,6 +102,7 @@ export class AddProductComponent implements OnInit {
     this.units = 1;
     this.cal = undefined;
     this.wgt = undefined;
+    this.check = false;
   }
   
   /*

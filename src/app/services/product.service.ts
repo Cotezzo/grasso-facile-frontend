@@ -47,8 +47,8 @@ export class ProductService {
     return this.http.post<Product>(this.toUseUrl+"products/"+"add", { product }, httpOptions);
   }
 
-  updateProduct = ({ _id, description, brand, location, expiration_date, insertion_date, units, optional, cal, wgt }: Product): Observable<Product> => { // Observable<Product>
-    return this.http.post<Product>(this.toUseUrl+"products/update/"+_id, { description, brand, location, expiration_date, insertion_date, units, optional, cal, wgt }, httpOptions);
+  updateProduct = ({ _id, description, brand, location, expiration_date, insertion_date, units, optional, cal, wgt, check }: Product): Observable<Product> => { // Observable<Product>
+    return this.http.post<Product>(this.toUseUrl+"products/update/"+_id, { description, brand, location, expiration_date, insertion_date, units, optional, cal, wgt, check }, httpOptions);
   }
 
   addOption(datalist: string, option: string): Observable<string[]> {

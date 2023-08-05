@@ -8,7 +8,7 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./filter-products-list.component.css']
 })
 export class FilterProductsListComponent implements OnInit {
-  @Output() onFilter = new EventEmitter<{prop: string, value: string}>();
+  @Output() onFilter = new EventEmitter();
   @Output() onClearFilter = new EventEmitter();
 
   description: string | undefined;
@@ -17,6 +17,7 @@ export class FilterProductsListComponent implements OnInit {
   insertion_date: string | undefined;
   location: string | undefined;
   optional: string | undefined;
+  check: string | undefined;
   
   bin = faTrash;
 
@@ -27,6 +28,10 @@ export class FilterProductsListComponent implements OnInit {
   ngOnInit(): void {}
 
   onInput = (prop: string, value: string) => this.onFilter.emit({ prop, value })
+  onBoolInput = (prop: string, value: string) => {
+    value = value.toUpperCase();  
+    return this.onFilter.emit({ prop, value: value === "Y" ? true : (value === "N" ? false : null) })
+  }
   
   onClick = () => {
     this.onClearFilter.emit()
@@ -40,5 +45,6 @@ export class FilterProductsListComponent implements OnInit {
     this.insertion_date = undefined;
     this.location = undefined;
     this.optional = undefined;
+    this.check = undefined;
   }
 }

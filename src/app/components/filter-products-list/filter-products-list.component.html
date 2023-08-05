@@ -1,3 +1,7 @@
+<div style="width: 6.2%;" class="filter-common">
+    <fa-icon class="btn-common btn-sort btn-filter" [icon]="bin" (click)="onClick()"></fa-icon>
+</div>
+
 <div class="filter-common">
     <input
         class="form-input"
@@ -50,6 +54,7 @@
     />
 </div>
 
+<!--
 <div class="filter-common">
     <input
         class="form-input"
@@ -62,7 +67,21 @@
         placeholder="Filtra"
     />
 </div>
+-->
 
+<div class="filter-common">
+    <input
+        class="form-input"
+        autocomplete="off"
+        type="text"
+        maxlength="1"
+        name="check"
+        [(ngModel)]="check"
+        (ngModelChange)="onBoolInput('check', $event)"
+        id="check"
+        placeholder="Filtra"
+    />
+</div>
 
 <div class="filter-common">
     <input
@@ -75,8 +94,4 @@
         id="optional"
         placeholder="Filtra"
     />
-</div>
-
-<div style="width: 6.2%;" class="filter-common">
-    <fa-icon class="btn-common btn-sort btn-filter" [icon]="bin" (click)="onClick()"></fa-icon>
 </div>

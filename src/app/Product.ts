@@ -12,4 +12,7 @@ export interface Product {
     // [2023-07-03] Aggiunta gestione di peso, calorie*100g e calcolo calorie
     cal?: number | undefined;
     wgt?: number | undefined;
+
+    // [2023-08-05] Aggiunta gestione prodotti "selezionati"
+    check: boolean;
 }

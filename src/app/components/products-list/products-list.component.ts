@@ -19,8 +19,8 @@ export class ProductsListComponent implements OnInit {
   datalistBrandOptions: string[] = [];
   // codes: any = {};                                                                                  // Code - Description associations
 
-  private static sortProperties: string[] = ["description", "location", "brand", "expiration_date", "insertion_date", "optional"]; // Product props associated with sort value with array index
-  sortInfo: number[] = [0, 0, 0, 0, 0, 0];                                                                 // Init values of sort state of product props in the list
+  private static sortProperties: string[] = ["description", "location", "brand", "expiration_date", "insertion_date", "optional", "check"]; // Product props associated with sort value with array index
+  sortInfo: number[] = [0, 0, 0, 0, 0, 0, 0];                                                                 // Init values of sort state of product props in the list
   private sortBy: string[] = [];                                                                                // List of properties to sort by the list
   private filters: any = {};          // Send to product                                                        // Filter list for comparing
   private current_date: string = "";  // Send to product                                                        // Date for comparing the expiration and setting the border 
@@ -88,7 +88,7 @@ export class ProductsListComponent implements OnInit {
    * @param {object} { product }
    * @returns 
    */
-  updateProduct = ({ _id, description, brand, location, expiration_date, insertion_date, units, optional, cal, wgt }: Product): any => {
+  updateProduct = ({ _id, description, brand, location, expiration_date, insertion_date, units, optional, cal, wgt, check }: Product): any => {
     _id = _id ?? "";  // To avoid undefined error
 
     if (!expiration_date || !insertion_date || !description || !location) return;  // Invalid parameters
@@ -99,12 +99,12 @@ export class ProductsListComponent implements OnInit {
     // optional = optional ? optional.toLowerCase() : undefined;
 
     // Database update
-    this.productService.updateProduct({ _id, description, brand, location, expiration_date, insertion_date, units, optional, cal, wgt }).subscribe(); // Update the database, don't wait for the reply
+    this.productService.updateProduct({ _id, description, brand, location, expiration_date, insertion_date, units, optional, cal, wgt, check }).subscribe(); // Update the database, don't wait for the reply
 
     // Frontend update
     const index = this.getProductIndexFromId(_id);                                                                  // Retrieve position in list
     if (units <= 0) return this.products.splice(index, 1);                                                          // Delete product if units <= 0
-    this.products[index] = { _id, description, brand, location, expiration_date, insertion_date, units, optional, cal, wgt }; // Update product
+    this.products[index] = { _id, description, brand, location, expiration_date, insertion_date, units, optional, cal, wgt, check }; // Update product
   }
 
   /**
@@ -168,7 +168,7 @@ export class ProductsListComponent implements OnInit {
    * Resets the values of the sort handlers
    */
   clearSort = () => {
-    this.sortInfo = [0, 0, 0, 0, 0, 0];
+    this.sortInfo = [0, 0, 0, 0, 0, 0, 0];
     this.sortBy = [];
   }
 
@@ -186,7 +186,9 @@ export class ProductsListComponent implements OnInit {
    * Adds a property value to the filters array
    * @param {prop: string, value: string | number}
    */
-  updateFilter = ({ prop, value }: { prop: string, value: string | number }) => this.filters[prop] = value;
+  updateFilter = ({ prop, value }: { prop: string, value: string | number | boolean }) => {
+    this.filters[prop] = value;
+  }
 
   /**
    * Removes all the filters
@@ -201,9 +203,13 @@ export class ProductsListComponent implements OnInit {
   filter = (product: any): boolean => {                                                           // ! Crashes with non keyof Product properties in filters
     for (const key of Object.keys(this.filters)) {                                                  // For every property in the filter
       const filter = this.filters[key];
-      if (filter)
+      if (filter !== undefined && filter !== null) {
+        if(filter === false && product[key]) 
+          return false;
+
         if (!product[key]?.toString().toLowerCase().includes(filter.toString().toLowerCase()))      // Compare the corrispective value in the product
           return false;                                                                           // If one doesn't match, returns false (don't display product)
+      }
     }
     return true;                                                                                  // If it never breaks, returns true (display product)
   }
@@ -233,5 +239,13 @@ export class ProductsListComponent implements OnInit {
   openUpdateDialog = (product: Product): void => {
     const dialogRef = this.dialog.open(UpdateProductDialogComponent, { data: { product: { ...product }, datalistLocationOptions: this.datalistLocationOptions, datalistBrandOptions: this.datalistBrandOptions } });
     dialogRef.afterClosed().subscribe(res => { if (res) this.updateProduct(res.product) });
+  }
+
+
+
+  checkUnit = (product: Product): void => {
+    product.check = !product.check;
+
+    this.updateProduct(product);
   }
 }

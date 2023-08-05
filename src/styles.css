@@ -131,8 +131,8 @@ body {
 .filter-common{
   display: inline-block;
   width: 15.5%;
-  padding-left: 2px;
-  padding-right: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 .form-label {
@@ -155,9 +155,30 @@ body {
   height: 55px;
 }
 
+
+.product-select {
+  width: 4.5%;
+}
+
+.product-select-checkbox {
+  margin: 2%;
+  width: 100%;
+  height: 100%;
+}
+
 .product-info {
-  width: 74.8%;
+  width: 69.5%;
   font-size: 13px;
+}
+
+@media (max-width: 1200px) {
+  .product-select {
+    width: 7%;
+  }
+
+  .product-info {
+    width: 66.5%;
+  }
 }
 
 .product-cart {
@@ -178,8 +199,8 @@ body {
 .sort {
   display: inline-block;
   width: 15.5%;
-  padding-left: 2px;
-  padding-right: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 header {

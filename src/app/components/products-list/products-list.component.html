@@ -7,7 +7,13 @@
 
 <app-filter-products-list (onFilter)="updateFilter($event)" (onClearFilter)="clearFilter()"></app-filter-products-list>
 
-<app-product *ngFor="let product of products" [product]="product" [checkDate]="checkDate(product.expiration_date)"
-    [filter]="filter(product)" (onRemoveUnit)="removeUnit($event)" (onAddUnit)="addUnit($event)"
+<app-product *ngFor="let product of products"
+    [product]="product"
+    [checkDate]="checkDate(product.expiration_date)"
+    [filter]="filter(product)"
+    
+    (onRemoveUnit)="removeUnit($event)"
+    (onAddUnit)="addUnit($event)"
+    (onCheckUnit)="checkUnit($event)"
     (onOpenDialog)="openUpdateDialog(product)">
 </app-product>

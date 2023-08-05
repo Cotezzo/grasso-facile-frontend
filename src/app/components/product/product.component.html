@@ -1,4 +1,8 @@
 <div *ngIf="filter">
+    <div class="product-common product-select">
+        <input class="product-select-checkbox" (change)="onCheck(product)" type="checkbox" [checked]="product.check">
+    </div>
+
     <div class="product-common product-info" [ngClass]="{ expired: checkDate }" (click)="onClick(product)">
     <!-- "openDialog(product)"> -->
         <h3 style="text-align: left;">{{ product?.description |titlecase }}{{ ( product?.brand ? " - " + product.brand : "" ) | titlecase }}
