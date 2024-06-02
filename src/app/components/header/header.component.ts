@@ -10,7 +10,9 @@ import { UiService } from '../../services/ui.service';
 })
 export class HeaderComponent implements OnInit {
 
-  subtitle: string = "Elenco dei prodotti in scadenza";
+  options: Intl.DateTimeFormatOptions = {year: "numeric", month: "numeric", day: 'numeric'};
+
+  subtitle: string = `Elenco dei prodotti in scadenza - ${new Date().toLocaleDateString("uk-UK")}`;
   showAddProduct: boolean = false;
   subscription: Subscription;
 
