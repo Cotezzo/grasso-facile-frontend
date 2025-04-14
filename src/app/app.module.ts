@@ -18,6 +18,7 @@ import { DatalistOptionComponent } from './components/datalist-option/datalist-o
 import { UpdateProductDialogComponent } from './components/update-product-dialog/update-product-dialog.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ConfirmRemoveDialogComponent } from './components/confirm-remove-dialog/confirm-remove-dialog.component';
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ConfirmRemoveDialogComponent } from './components/confirm-remove-dialog
     DatalistOptionComponent,
     UpdateProductDialogComponent,
     FooterComponent,
-    ConfirmRemoveDialogComponent
+    ConfirmRemoveDialogComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,

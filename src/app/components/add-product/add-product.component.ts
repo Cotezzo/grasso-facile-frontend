@@ -47,23 +47,25 @@ export class AddProductComponent implements OnInit {
     const location: string = this.location.toLowerCase();
     const optional: string | undefined = this.optional;
 
-    if(!this.datalistDescriptionOptions.includes(description)) {              // Add new description hint if not present
+    // Add new description / location / brand hint if not present.
+    // 2025-04-13: datalist update on database moved directly in the product/add API backend-side.
+    if(!this.datalistDescriptionOptions.includes(description)) {
       this.datalistDescriptionOptions.push(description);
-      this.productService.addOption("description", description).subscribe();
+      //this.productService.addOption("description", description).subscribe();
     }
     
-    if(brand && !this.datalistBrandOptions.includes(brand)) {                 //    ^^             brand                ^^
+    if(brand && !this.datalistBrandOptions.includes(brand)) {
       this.datalistBrandOptions.push(brand)
-      this.productService.addOption("brand", brand).subscribe();
+      //this.productService.addOption("brand", brand).subscribe();
     }
 
-    if(!this.datalistLocationOptions.includes(location)) {                    //    ^^            location              ^^
+    if(!this.datalistLocationOptions.includes(location)) {
       this.datalistLocationOptions.push(location)
-      this.productService.addOption("location", location).subscribe();
+      //this.productService.addOption("location", location).subscribe();
     }
 
     /*
-    if(code && !this.codes.hasOwnProperty(code)){                             //    ^^   code-description association   ^^
+    if(code && !this.codes.hasOwnProperty(code)){
       this.codes[code] = description;
       this.productService.addCode(code, description).subscribe();
     }
@@ -74,7 +76,8 @@ export class AddProductComponent implements OnInit {
     var month = dateObj.getUTCMonth() + 1; //months from 1-12
     var day = dateObj.getUTCDate();
     
-    const newProduct: Product = {                                             // Create new product to add
+    // Create new product to be added
+    const newProduct: Product = {
       description,
       brand,
       expiration_date: this.expiration_date,
