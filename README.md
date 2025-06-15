@@ -3,7 +3,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 You can install Angular using `npm i -g @angular/cli`.
 
 ## Development server
-Run `ng serve` (`npm start`) for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. In order to this to work, since SSL is used, `export NODE_OPTIONS=--openssl-legacy-provider` must be used first.
+Run `ng serve` (`npm start`) for a dev server. Navigate to `https://localhost:4200/`. The app will automatically reload if you change any of the source files. In order to this to work, since SSL is used, `export NODE_OPTIONS=--openssl-legacy-provider` must be used first.
 
 ## Code scaffolding
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.

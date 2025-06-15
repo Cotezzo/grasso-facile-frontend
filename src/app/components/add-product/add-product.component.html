@@ -1,7 +1,7 @@
 <form *ngIf="showAddProduct" class="form" (ngSubmit)="onSubmit()">
 
   <div class="form-long">
-    <label class="form-label" for="description">Descrizione</label>
+    <label class="form-label" for="description">Descrizione<span class="red-asterisk">*</span></label>
     <input class="form-input" autocomplete="off" list="datalistDescription" type="text" name="description"
       [(ngModel)]="description" id="description" placeholder="Descrizione" />
   </div>
@@ -13,7 +13,7 @@
   </div>
 
   <div class="form-medium">
-    <label class="form-label" for="expiration_date">Scadenza</label>
+    <label class="form-label" for="expiration_date">Scadenza<span class="red-asterisk">*</span></label>
     <input class="form-input" type="date" name="expiration_date" [(ngModel)]="expiration_date" id="expiration_date"
       placeholder="Scadenza" />
   </div>
@@ -23,7 +23,7 @@
 
 
   <div class="form-long">
-    <label class="form-label" for="location">Ubicazione</label>
+    <label class="form-label" for="location">Ubicazione<span class="red-asterisk">*</span></label>
     <input class="form-input" autocomplete="off" list="datalistLocation" type="text" name="location"
       [(ngModel)]="location" id="location" placeholder="Ubicazione" />
   </div>

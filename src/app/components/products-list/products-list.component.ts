@@ -177,11 +177,24 @@ export class ProductsListComponent implements OnInit {
 
     }
 
+    updateUnit(product: Product, delta: number) {
+        this.dialog
+            .open(ConfirmRemoveDialogComponent, { data: { product, delta } })
+            .afterClosed()
+            .subscribe(confimed => {
+                // If user clicks "confirm", go ahead and remove a unit;
+                // or delete item if units are now 0.
+                if (confimed) {
+                    this.updateProduct({ ...product, units: product.units + delta });
+                }
+            });
+    }
+
     /** Callback triggered when clicking on the green cart button for a product.
      *  Adds a unit to the product, updating both database and frontend.
      *  @param {Product} product The product that will be updated. */
     addUnit(product: Product) {
-        this.updateProduct({ ...product, units: product.units + 1 });
+        this.updateUnit(product, 1);
     }
 
     /** Callback triggered when clicking on the red cart button for a product.
@@ -190,24 +203,7 @@ export class ProductsListComponent implements OnInit {
      *  confirm the product deletion.
      *  @param {Product} product The product that will be updated. */
     removeUnit(product: Product): void {
-
-        // If there is only one unit, open dialogue before removing the product.
-        if (product.units == 1) {
-            this.dialog
-                .open(ConfirmRemoveDialogComponent)
-                .afterClosed()
-                .subscribe(confimed => {
-                    // If user clicks "confirm", go ahead and delete it.
-                    if (confimed) {
-                        this.updateProduct({ ...product, units: product.units - 1 });
-                    }
-                });
-        }
-
-        // If not, directly update product info.
-        else {
-            this.updateProduct({ ...product, units: product.units - 1 });
-        }
+        this.updateUnit(product, -1);
     }
 
     /** Callback triggered when clicking on the checkbox for a product.
@@ -246,6 +242,21 @@ export class ProductsListComponent implements OnInit {
             .subscribe(data => {
                 if (data) {
                     this.updateProduct(data.product);
+
+                    const description = data.product.description
+                    if(description && !this.datalistDescriptionOptions.includes(description)) {
+                        this.datalistDescriptionOptions.push(description);
+                    }
+                    
+                    const brand = data.product.brand
+                    if(brand && !this.datalistBrandOptions.includes(brand)) {
+                        this.datalistBrandOptions.push(brand)
+                    }
+
+                    const location = data.product.location
+                    if(location && !this.datalistLocationOptions.includes(location)) {
+                        this.datalistLocationOptions.push(location)
+                    }
                 }
             });
     }

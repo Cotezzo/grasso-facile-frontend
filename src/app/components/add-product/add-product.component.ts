@@ -97,11 +97,11 @@ export class AddProductComponent implements OnInit {
   }
 
   clearInputs = () => {
-    this.description = "";                                                    // Reset input fields
-    this.brand = "";
-    this.optional = "";
-    this.location = "";
-    this.expiration_date = "";
+    this.description = undefined;                                                    // Reset input fields
+    this.brand = undefined;
+    this.optional = undefined;
+    this.location = undefined;
+    this.expiration_date = undefined;
     this.units = 1;
     this.cal = undefined;
     this.wgt = undefined;
